@@ -1,0 +1,19 @@
+NAME|MESSAGE_CODE|DESCRIPTION
+desc.fwk|desc.fwk.code|Project Framework
+desc.fwk-util|desc.fwk-util.code|Utility module for project Framework
+desc.fwk-jpa|desc.fwk-jpa.code|Persistence module for project Framework
+desc.fwk-service|desc.fwk-service.code|Service module for project Framework
+desc.descent|desc.descent.code|Project Descent
+desc.descent-database|desc.descent-database.code|Database module for project Descent
+desc.descent-jpa|desc.descent-jpa.code|Persistence module for project Descent
+desc.descent-rule|desc.descent-rule.code|Rule module for project Descent
+desc.imperial|desc.imperial.code|Project Imperial
+desc.imperial-database|desc.imperial-database.code|Database module for project Imperial
+desc.imperial-jpa|desc.imperial-jpa.code|Persistence module for project Imperial
+desc.calcul|desc.calcul.code|Project Calcul
+desc.calcul-database|desc.calcul-database.code|Database module for project Calcul
+desc.calcul-jpa|desc.calcul-jpa.code|Persistence module for project Calcul
+desc.xwing|desc.xwing.code|Project Xwing
+desc.xwing-database|desc.xwing-database.code|Database module for project Xwing
+desc.xwing-jpa|desc.xwing-jpa.code|Persistence module for project Xwing
+desc.xwing-web|desc.xwing-web.code|Web module for project Xwing

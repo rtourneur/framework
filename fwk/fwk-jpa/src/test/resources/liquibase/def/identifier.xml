@@ -1,0 +1,28 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+  <changeSet author="RAF" id="table-fwk-identifier-1">
+    <createTable tableName="IDENTIFIER" schemaName="FWK" remarks="Table for identifiers">
+      <column name="ID" type="INT" autoIncrement="true" remarks="Identifier of the identifier ">
+        <constraints nullable="false" primaryKey="true" primaryKeyName="IDENTIFIER_PK" />
+      </column>
+      <column name="MESSAGE_CODE" type="VARCHAR(40)" remarks="Message code of the identifier">
+        <constraints nullable="false" />
+      </column>
+      <column name="DESCRIPTION" type="VARCHAR(30)" remarks="Description of the identifier">
+        <constraints nullable="false" foreignKeyName="FK_IDENTIFIER_DESCRIPTION" references="FWK.DESCRIPTION(NAME)" />
+      </column>
+      <column name="ICON" type="VARCHAR(30)" remarks="Icon of the identifier">
+        <constraints nullable="false" foreignKeyName="FK_IDENTIFIER_ICON" references="FWK.ICON(NAME)" />
+      </column>
+      <column name="VERSION" type="INT" remarks="Version control" defaultValue="0">
+        <constraints nullable="false" />
+      </column>
+    </createTable>
+  </changeSet>
+  <changeSet author="RAF" id="load-fwk-identifier-1">
+    <loadData schemaName="FWK" relativeToChangelogFile="true" encoding="UTF-8" file="../data/identifier.csv" separator="|" tableName="IDENTIFIER" />
+  </changeSet>
+
+</databaseChangeLog>

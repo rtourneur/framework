@@ -1,0 +1,25 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+  <changeSet author="RAF" id="table-fwk-icon-1">
+    <createTable tableName="ICON" schemaName="FWK" remarks="Table for icons">
+      <column name="NAME" type="VARCHAR(30)" remarks="Name of the icon">
+        <constraints nullable="false" primaryKey="true" primaryKeyName="ICON_PK" />
+      </column>
+      <column name="MESSAGE_CODE" type="VARCHAR(40)" remarks="Message code of the icon">
+        <constraints nullable="false" />
+      </column>
+      <column name="ICON" type="VARCHAR(30)" remarks="Text of the icon">
+        <constraints nullable="false" />
+      </column>
+      <column name="VERSION" type="INT" remarks="Version control" defaultValue="0">
+        <constraints nullable="false" />
+      </column>
+    </createTable>
+  </changeSet>
+  <changeSet author="RAF" id="load-fwk-icon-1">
+    <loadData schemaName="FWK" relativeToChangelogFile="true" encoding="UTF-8" file="../data/icon.csv" separator="|" tableName="ICON" />
+  </changeSet>
+
+</databaseChangeLog>
