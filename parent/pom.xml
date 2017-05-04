@@ -18,7 +18,7 @@
     <junit.version>4.12</junit.version>
     <log4j.version>1.2.17</log4j.version>
     <jpa.version>1.0.0.Final</jpa.version>
-    <hibernate.version>4.3.8.Final</hibernate.version>
+    <hibernate.version>4.3.11.Final</hibernate.version>
     <derby.version>10.8.2.2</derby.version>
     <hsqldb.version>2.3.3</hsqldb.version>
     <liquibase.version>3.5.3</liquibase.version>
