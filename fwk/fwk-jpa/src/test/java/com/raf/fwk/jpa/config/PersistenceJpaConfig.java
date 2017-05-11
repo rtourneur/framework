@@ -24,6 +24,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.raf.fwk.util.config.UtilConfig;
 
 import liquibase.integration.spring.SpringLiquibase;
+import lombok.NoArgsConstructor;
 
 /**
  * Spring configuration class for persistence.
@@ -35,18 +36,12 @@ import liquibase.integration.spring.SpringLiquibase;
 @ComponentScan("com.raf.fwk.jpa")
 @PropertySource({ "classpath:persistence.properties" })
 @EnableTransactionManagement
+@NoArgsConstructor
 public class PersistenceJpaConfig {
 
   /** Spring environment. */
   @Autowired
   private Environment env;
-
-  /**
-   * Constructor.
-   */
-  public PersistenceJpaConfig() {
-    super();
-  }
 
   /**
    * Initialize the entity manager factory.

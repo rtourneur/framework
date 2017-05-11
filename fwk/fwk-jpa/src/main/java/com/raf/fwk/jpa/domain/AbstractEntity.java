@@ -1,5 +1,7 @@
 package com.raf.fwk.jpa.domain;
 
+import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
+
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -32,7 +34,7 @@ public abstract class AbstractEntity {
    */
   @Override
   public final String toString() {
-    final ToStringBuilder builder = new ToStringBuilder(this);
+    final ToStringBuilder builder = new ToStringBuilder(this, SHORT_PREFIX_STYLE);
     append(builder);
     builder.append("version", this.version);
     return builder.toString();
