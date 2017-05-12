@@ -73,7 +73,7 @@ public abstract class AbstractIdDao<E extends DomainIdEntity> extends AbstractDa
    * @see AbstractDao#getOrder(CriteriaBuilder, Root)
    */
   @Override
-  protected List<Order> getOrder(final CriteriaBuilder builder, final Root<E> root) {
+  protected final List<Order> getOrder(final CriteriaBuilder builder, final Root<E> root) {
     final List<Order> orders = new ArrayList<>();
     appendOrder(orders, builder, root);
     orders.add(builder.asc(root.get(IDENT)));
