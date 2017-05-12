@@ -32,7 +32,7 @@ public abstract class AbstractDescriptionEntity extends AbstractNamedEntity impl
    * Append the properties for the to string builder.
    * 
    * @param builder the builder
-   * @see AbstractNamedEntity#appendName(ToStringBuilder)
+   * @see AbstractNamedEntity#appendNamed(ToStringBuilder)
    */
   @Override
   protected final void appendNamed(final ToStringBuilder builder) {

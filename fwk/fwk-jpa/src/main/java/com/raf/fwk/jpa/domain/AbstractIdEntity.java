@@ -37,7 +37,7 @@ public abstract class AbstractIdEntity extends AbstractEntity implements DomainI
    * Returns the serializable ID of domain entity.
    *
    * @return the ID
-   * @see DomainNamedEntity#getId()
+   * @see DomainEntity#getIdentifier()
    */
   @Override
   public final Integer getIdentifier() {
@@ -49,7 +49,7 @@ public abstract class AbstractIdEntity extends AbstractEntity implements DomainI
    *
    * @param identifier
    *          the identifier to set
-   * @see DomainNamedEntity#setIdent(java.io.Serializable)
+   * @see DomainEntity#setIdentifier(java.io.Serializable)
    */
   @Override
   public final void setIdentifier(final Integer identifier) {

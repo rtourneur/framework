@@ -51,6 +51,9 @@ public abstract class AbstractEntity {
   /**
    * Create a new Date object from the date.
    * 
+   * @param date
+   *          the date
+   * 
    * @return a new date
    */
   protected final Date getFromDate(final Date date) {

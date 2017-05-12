@@ -38,7 +38,7 @@ public abstract class AbstractNamedEntity extends AbstractEntity implements Doma
    * Returns the serializable ID of domain entity.
    *
    * @return the ID
-   * @see DomainNamedEntity#getId()
+   * @see DomainEntity#getIdentifier()
    */
   @Override
   public final String getIdentifier() {
@@ -50,7 +50,7 @@ public abstract class AbstractNamedEntity extends AbstractEntity implements Doma
    *
    * @param ident
    *          the identifier to set
-   * @see DomainNamedEntity#setIdent(java.io.Serializable)
+   * @see DomainEntity#setIdentifier(java.io.Serializable)
    */
   @Override
   public final void setIdentifier(final String ident) {

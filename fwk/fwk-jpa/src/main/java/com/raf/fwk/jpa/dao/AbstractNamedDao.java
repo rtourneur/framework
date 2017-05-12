@@ -40,7 +40,7 @@ public abstract class AbstractNamedDao<E extends DomainNamedEntity<String>> exte
    *          the root type
    * @param example
    *          the example
-   * @see AbstractDao#getPredicates(Root, DomainNamedEntity)
+   * @see AbstractDao#getPredicates(Root, com.raf.fwk.jpa.domain.DomainEntity)
    */
   @Override
   protected final Predicate[] getPredicates(final Root<E> root, final E example) {

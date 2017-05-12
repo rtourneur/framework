@@ -27,8 +27,7 @@ public final class LoggableAspect {
   }
 
   /**
-   * Log the call to the method whith {@link com.raf.fwk.util.aop.descent.util.Loggable} annotation. Log the method name
-   * and the parameters.
+   * Log the call to the method whith {@link Loggable} annotation. Log the method name and the parameters.
    * 
    * @param joinpoint
    *          the joint point
@@ -57,10 +56,11 @@ public final class LoggableAspect {
   }
 
   /**
-   * Log the duration of the method whith {@link com.raf.fwk.util.aop.descent.util.Loggable} annotation.
+   * Log the duration of the method whith {@link Loggable} annotation.
    * 
    * @param joinpoint
    *          the joint point
+   * @return the returned object of the method
    * @throws Throwable
    *           the throwable from the method
    */

@@ -257,6 +257,8 @@ public abstract class AbstractDao<E extends DomainEntity<I>, I extends Serializa
    * 
    * @param query
    *          the query
+   * @param <T>
+   *          the typed entity
    * @return the root element
    */
   protected final <T> Root<E> getRoot(final CriteriaQuery<T> query) {
@@ -268,10 +270,12 @@ public abstract class AbstractDao<E extends DomainEntity<I>, I extends Serializa
    *
    * @param query
    *          the query
-   * @param root
+   * @param selection
    *          the selection
    * @param predicates
    *          the array of predicate
+   * @param <T>
+   *          the typed entity
    * @return a list of entities
    */
   protected final <T> List<T> find(final CriteriaQuery<T> query, final Selection<T> selection,
@@ -321,8 +325,10 @@ public abstract class AbstractDao<E extends DomainEntity<I>, I extends Serializa
    *          the root type
    * @param attributeName
    *          the name of the field
-   * @param value
-   *          the searched value
+   * @param valueMin
+   *          the min value
+   * @param valueMax
+   *          the max value
    * @return the predicate
    */
   protected final Predicate getBetweenDate(final From<E, ?> from, final String attributeName, final Date valueMin,
@@ -348,8 +354,6 @@ public abstract class AbstractDao<E extends DomainEntity<I>, I extends Serializa
    *
    * @param root
    *          the root type
-   * @param embeddableName
-   *          the name of the embeddable
    * @param attributeName
    *          the name of the column
    * @param value

@@ -10,7 +10,6 @@ import javax.persistence.criteria.Order;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import com.raf.fwk.jpa.domain.DomainEntity;
 import com.raf.fwk.jpa.domain.DomainIdEntity;
 import com.raf.fwk.util.aop.Loggable;
 
@@ -40,7 +39,7 @@ public abstract class AbstractIdDao<E extends DomainIdEntity> extends AbstractDa
    * @param example
    *          the example instance with functionnal id
    * @return the entity
-   * @see EntityDao#getByExample(DomainEntity)
+   * @see EntityIdDao#getByExample(DomainIdEntity)
    */
   @Override
   @Loggable

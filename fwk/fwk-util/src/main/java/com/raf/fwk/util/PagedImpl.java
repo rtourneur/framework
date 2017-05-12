@@ -55,7 +55,7 @@ public final class PagedImpl<E> extends ArrayList<E> implements Paged<E> {
    * Return the number of rows in the result list.
    * 
    * @return the number of rows
-   * @see com.raf.descent.util.Paged#getNbRows()
+   * @see Paged#getNbRows()
    */
   @Override
   public int getNbRows() {
@@ -67,7 +67,7 @@ public final class PagedImpl<E> extends ArrayList<E> implements Paged<E> {
    * 
    * @param nbRows
    *          the number of rows
-   * @see com.raf.descent.util.Paged#setNbRows(int)
+   * @see Paged#setNbRows(int)
    */
   @Override
   public void setNbRows(final int nbRows) {
@@ -78,7 +78,7 @@ public final class PagedImpl<E> extends ArrayList<E> implements Paged<E> {
    * Return the chosen page number.
    * 
    * @return the page number
-   * @see com.raf.descent.util.Paged#getPageNum()
+   * @see Paged#getPageNum()
    */
   @Override
   public int getPageNum() {
@@ -90,7 +90,7 @@ public final class PagedImpl<E> extends ArrayList<E> implements Paged<E> {
    * 
    * @param pageNum
    *          the page number
-   * @see com.raf.descent.util.Paged#setPageNum(int)
+   * @see Paged#setPageNum(int)
    */
   @Override
   public void setPageNum(final int pageNum) {
@@ -101,7 +101,7 @@ public final class PagedImpl<E> extends ArrayList<E> implements Paged<E> {
    * Return the total number of rows.
    * 
    * @return the total number of rows
-   * @see com.raf.descent.util.Paged#getTotalRows()
+   * @see Paged#getTotalRows()
    */
   @Override
   public int getTotalRows() {
@@ -113,7 +113,7 @@ public final class PagedImpl<E> extends ArrayList<E> implements Paged<E> {
    * 
    * @param totalRows
    *          the total number of rows
-   * @see com.raf.descent.util.Paged#setTotalRows(int)
+   * @see Paged#setTotalRows(int)
    */
   @Override
   public void setTotalRows(final int totalRows) {
@@ -124,7 +124,7 @@ public final class PagedImpl<E> extends ArrayList<E> implements Paged<E> {
    * Return the total number of pages.
    * 
    * @return the total number of pages
-   * @see com.raf.descent.util.Paged#getTotalPages()
+   * @see Paged#getTotalPages()
    */
   @Override
   public int getTotalPages() {
