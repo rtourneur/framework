@@ -6,6 +6,8 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>fwk-security</artifactId>
+  <name>Framework de sécurité</name>
+  <description>Framework contenant des interfaces et classes pour la gestion des utilisateurs avec Spring Security</description>
   <dependencies>
     <dependency>
       <groupId>org.projectlombok</groupId>

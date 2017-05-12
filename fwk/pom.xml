@@ -161,6 +161,11 @@
         <artifactId>fwk-service</artifactId>
         <version>${project.version}</version>
       </dependency>
+      <dependency>
+        <groupId>com.raf.fwk</groupId>
+        <artifactId>fwk-security</artifactId>
+        <version>${project.version}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
   <build>
