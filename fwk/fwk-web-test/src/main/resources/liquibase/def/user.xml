@@ -3,7 +3,7 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
   <changeSet author="RAF" id="table-webtest-user-1">
-    <createTable tableName="USER" remarks="Table for users">
+    <createTable tableName="USER" schemaName="WEBTEST" remarks="Table for users">
       <column name="ID" type="INT" autoIncrement="true" remarks="Identifier of the user">
         <constraints nullable="false" primaryKey="true" primaryKeyName="USER_PK" />
       </column>
@@ -23,7 +23,7 @@
     </createTable>
   </changeSet>
   <changeSet author="RAF" id="load-webtest-user-1">
-    <loadData relativeToChangelogFile="true" encoding="UTF-8" file="../data/user.csv" separator="|" tableName="USER" />
+    <loadData relativeToChangelogFile="true" encoding="UTF-8" file="../data/user.csv" separator="|" tableName="USER" schemaName="WEBTEST"/>
   </changeSet>
 
 </databaseChangeLog>

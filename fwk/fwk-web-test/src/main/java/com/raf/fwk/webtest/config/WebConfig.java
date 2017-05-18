@@ -124,8 +124,9 @@ public class WebConfig {
   private Properties additionalProperties() {
     final Properties properties = new Properties();
     properties.setProperty("hibernate.dialect", this.env.getProperty("hibernate.dialect"));
-    properties.setProperty("hibernate.show_sql", this.env.getProperty("hibernate.show_sql"));
-    properties.setProperty("hibernate.format_sql", this.env.getProperty("hibernate.format_sql"));
+    properties.setProperty("hibernate.show_sql", this.env.getProperty("hibernate.show_sql", "false"));
+    properties.setProperty("hibernate.format_sql", this.env.getProperty("hibernate.format_sql", "false"));
+    properties.setProperty("hibernate.default_schema", this.env.getProperty("hibernate.default_schema"));
     return properties;
   }
 }

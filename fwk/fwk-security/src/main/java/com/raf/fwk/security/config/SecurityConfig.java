@@ -36,8 +36,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
    * @return the password encoder
    */
   @Bean
-  public final BCryptPasswordEncoder bCryptPasswordEncoder() {
+  public BCryptPasswordEncoder bcryptPasswordEncoder() {
     return new BCryptPasswordEncoder();
+  }
+
+  /**
+   * Expose the {@link AuthenticationManager}.
+   * 
+   * @return the AuthenticationManager
+   * @see WebSecurityConfigurerAdapter#authenticationManagerBean()
+   */
+  @Bean(name = BeanIds.AUTHENTICATION_MANAGER)
+  @Override
+  public AuthenticationManager authenticationManagerBean() throws Exception {
+    return super.authenticationManagerBean();
   }
 
   /**
@@ -75,18 +87,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
    */
   @Autowired
   public final void configureGlobal(final AuthenticationManagerBuilder auth) throws Exception {
-    auth.userDetailsService(this.userDetailsService).passwordEncoder(bCryptPasswordEncoder());
+    auth.userDetailsService(this.userDetailsService).passwordEncoder(bcryptPasswordEncoder());
   }
 
-  /**
-   * Expose the {@link AuthenticationManager}.
-   * 
-   * @return the AuthenticationManager
-   * @see WebSecurityConfigurerAdapter#authenticationManagerBean()
-   */
-  @Bean(name = BeanIds.AUTHENTICATION_MANAGER)
-  @Override
-  public final AuthenticationManager authenticationManagerBean() throws Exception {
-    return super.authenticationManagerBean();
-  }
 }
