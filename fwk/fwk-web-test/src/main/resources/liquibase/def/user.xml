@@ -1,0 +1,29 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+  <changeSet author="RAF" id="table-webtest-user-1">
+    <createTable tableName="USER" remarks="Table for users">
+      <column name="ID" type="INT" autoIncrement="true" remarks="Identifier of the user">
+        <constraints nullable="false" primaryKey="true" primaryKeyName="USER_PK" />
+      </column>
+      <column name="USERNAME" type="VARCHAR2(50)" remarks="Username of the user">
+        <constraints nullable="false" />
+      </column>
+      <column name="PASSWORD" type="VARCHAR2(500)" remarks="Password of the user">
+        <constraints nullable="false" />
+      </column>
+      <column name="ENABLED" type="BOOLEAN" remarks="Enabled indicator of the user"/>
+      <column name="MAIL" type="VARCHAR2(50)" remarks="Mail adress of the user">
+        <constraints nullable="false" />
+      </column>
+      <column name="VERSION" type="INT" remarks="Version control" defaultValue="0">
+        <constraints nullable="false" />
+      </column>
+    </createTable>
+  </changeSet>
+  <changeSet author="RAF" id="load-webtest-user-1">
+    <loadData relativeToChangelogFile="true" encoding="UTF-8" file="../data/user.csv" separator="|" tableName="USER" />
+  </changeSet>
+
+</databaseChangeLog>

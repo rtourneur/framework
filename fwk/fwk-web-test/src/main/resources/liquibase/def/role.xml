@@ -1,0 +1,20 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+  <changeSet author="RAF" id="table-webtest-role-1">
+    <createTable tableName="ROLE" remarks="Table for roles">
+      <column name="ID" type="INT" remarks="Identifier of the user">
+        <constraints nullable="false" foreignKeyName="FK_ROLE_USER" references="PUBLIC.USER(ID)"/>
+      </column>
+      <column name="ROLE" type="VARCHAR2(50)" remarks="Role for the user">
+        <constraints nullable="false" />
+      </column>
+    </createTable>
+    <addPrimaryKey constraintName="ROLE_PK" columnNames="ID, ROLE" tableName="ROLE" />
+  </changeSet>
+  <changeSet author="RAF" id="load-webtest-role-1">
+    <loadData relativeToChangelogFile="true" encoding="UTF-8" file="../data/role.csv" separator="|" tableName="ROLE" />
+  </changeSet>
+
+</databaseChangeLog>

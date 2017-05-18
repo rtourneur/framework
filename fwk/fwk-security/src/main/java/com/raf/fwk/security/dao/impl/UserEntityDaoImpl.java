@@ -21,7 +21,6 @@ import com.raf.fwk.security.domain.UserEntity;
  * Implementation DAO for {@link UserEntityDao}.
  * 
  * @author RAF
- *
  */
 @Repository
 public final class UserEntityDaoImpl extends AbstractIdDao<UserEntity> implements UserEntityDao {
@@ -38,17 +37,35 @@ public final class UserEntityDaoImpl extends AbstractIdDao<UserEntity> implement
    * 
    * @param username
    *          the username
-   * @return the user if found, <code>null</code> otherwise
+   * @return the list of found users
    * @see UserEntityDao#findByUsername(String)
    */
   @Override
-  public UserEntity findByUsername(final String username) {
+  public List<UserEntity> findByUsername(final String username) {
     final CriteriaQuery<UserEntity> query = getQuery();
     final Root<UserEntity> root = getRoot(query);
     final Predicate[] predicates = new Predicate[1];
     predicates[0] = getEquals(root, "username", username);
     final TypedQuery<UserEntity> typedQuery = getTypedQuery(query.select(root).where(predicates));
-    return typedQuery.getSingleResult();
+    return typedQuery.getResultList();
+  }
+
+  /**
+   * Find the user whith the mail adress.
+   * 
+   * @param mail
+   *          the mail adress
+   * @return the list of found users
+   * @see UserEntityDao#findByUsername(String)
+   */
+  @Override
+  public List<UserEntity> findByMail(final String mail) {
+    final CriteriaQuery<UserEntity> query = getQuery();
+    final Root<UserEntity> root = getRoot(query);
+    final Predicate[] predicates = new Predicate[1];
+    predicates[0] = getEquals(root, "mail", mail);
+    final TypedQuery<UserEntity> typedQuery = getTypedQuery(query.select(root).where(predicates));
+    return typedQuery.getResultList();
   }
 
   /**

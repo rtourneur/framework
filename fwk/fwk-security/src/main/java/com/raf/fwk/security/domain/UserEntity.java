@@ -2,87 +2,82 @@ package com.raf.fwk.security.domain;
 
 import java.util.Set;
 
-import com.raf.fwk.jpa.domain.DomainIdEntity;
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.Table;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
+import com.raf.fwk.jpa.domain.AbstractIdEntity;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
- * Interface for user entity table.
+ * Abstract class for user entity table.
  * 
  * @author RAF
  */
-public interface UserEntity extends DomainIdEntity {
+@Entity
+@Table(name = "USER")
+@Getter
+@Setter
+@NoArgsConstructor
+public class UserEntity extends AbstractIdEntity {
+
+  /** Serial UID. */
+  private static final long serialVersionUID = 5054503932659543557L;
+
+  /** The username. */
+  @Column(name = "USERNAME", nullable = false, length = 50)
+  private String username;
+
+  /** The password. */
+  @Column(name = "PASSWORD", nullable = false, length = 500)
+  private String password;
+
+  /** The enabled indicator. */
+  @Column(name = "ENABLED")
+  private boolean enabled;
+
+  /** The mail adress. */
+  @Column(name = "MAIL", nullable = false, length = 50)
+  private String mail;
+
+  /** The set of roles. */
+  @ElementCollection(fetch = FetchType.EAGER)
+  @CollectionTable(name = "ROLE", joinColumns = { @JoinColumn(name = "ID") })
+  private Set<RoleUser> roles;
 
   /**
-   * Return the username.
+   * Append the object values for the to string builder.
    * 
-   * @return the username
+   * @param builder
+   *          the to string builder
+   * 
+   * @see AbstractIdEntity#appendId(ToStringBuilder)
    */
-  String getUsername();
+  @Override
+  protected final void appendId(final ToStringBuilder builder) {
+    builder.append("username", this.username).append("password", this.password).append("enabled", this.enabled).append(
+        "mail",
+        this.mail);
+    appendUser(builder);
+  }
 
   /**
-   * Define the username.
+   * Append the object values for the to string builder.
    * 
-   * @param username
-   *          the username
+   * @param builder
+   *          the to string builder
    */
-  void setUsername(String username);
+  protected void appendUser(final ToStringBuilder builder) {
+    // Empty method for overriding
+  }
 
-  /**
-   * Return the password.
-   * 
-   * @return the password
-   */
-  String getPassword();
-
-  /**
-   * Define the password.
-   * 
-   * @param password
-   *          the password
-   */
-  void setPassword(String password);
-
-  /**
-   * Return the enabled indicator.
-   * 
-   * @return the enabled indicator
-   */
-  boolean isEnabled();
-
-  /**
-   * Define the enabled indicator.
-   * 
-   * @param enabled
-   *          the enabled indicator
-   */
-  void setEnabled(boolean enabled);
-
-  /**
-   * Return the mail adress.
-   * 
-   * @return the mail adress
-   */
-  String getMail();
-
-  /**
-   * Define the mail adress.
-   * 
-   * @param mail
-   *          the mail adress
-   */
-  void setMail(String mail);
-
-  /**
-   * Return the set of roles for the user.
-   * 
-   * @return the set of roles for the user
-   */
-  Set<RoleUser> getRoles();
-
-  /**
-   * Define the set of roles for the user.
-   * 
-   * @param roles
-   *          the set of roles for the user
-   */
-  void setRoles(Set<RoleUser> roles);
 }

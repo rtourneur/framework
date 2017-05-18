@@ -1,0 +1,3 @@
+USERNAME|PASSWORD|ENABLED|MAIL
+user|$2a$10$Za.4NW0knHnCDm5/3t.FuOperuw9dQX7QNt67y6MV2JjKgXzTx3em|true|user@webtest
+admin|$2a$10$986Eg6qhr9n9TJO5oFMQN.HRdXm3uy10yoTQemqLYmZiYaC6RxieK|true|admin@webtest

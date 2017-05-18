@@ -1,5 +1,7 @@
 package com.raf.fwk.security.dao;
 
+import java.util.List;
+
 import com.raf.fwk.jpa.dao.EntityIdDao;
 import com.raf.fwk.security.domain.UserEntity;
 
@@ -15,7 +17,16 @@ public interface UserEntityDao extends EntityIdDao<UserEntity> {
    * 
    * @param username
    *          the username
-   * @return the user if found, <code>null</code> otherwise
+   * @return the list of found users
    */
-  UserEntity findByUsername(String username);
+  List<UserEntity> findByUsername(String username);
+
+  /**
+   * Find the user whith the mail adress.
+   * 
+   * @param mail
+   *          the mail adress
+   * @return the list of found users
+   */
+  List<UserEntity> findByMail(String mail);
 }
