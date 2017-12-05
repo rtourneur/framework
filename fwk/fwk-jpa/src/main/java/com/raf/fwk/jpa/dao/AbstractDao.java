@@ -1,6 +1,7 @@
 package com.raf.fwk.jpa.dao;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -365,6 +366,23 @@ public abstract class AbstractDao<E extends DomainEntity<I>, I extends Serializa
     return builder.like(builder.lower(root.<String> get(attributeName)),
         '%' + value.toLowerCase(Locale.getDefault()) + '%');
   }
+
+  /**
+   * Creates a "in" predicate.
+   *
+   * @param from
+   *          the root type
+   * @param attributeName
+   *          the name of the column
+   * @param values
+   *          the collection of searched value
+   * @return the predicate
+   */
+  protected final Predicate getIn(final From<E, ?> from, final String attributeName, final Collection<?> values) {
+    final CriteriaBuilder builder = getCriteriaBuilder();
+    return builder.in(from.get(attributeName)).value(values);
+  }
+
 
   /**
    * Set the first and max results.
