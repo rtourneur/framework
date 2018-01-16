@@ -30,7 +30,7 @@ public abstract class AbstractIdEntity extends AbstractEntity implements DomainI
   /** The identifier. */
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "ID", unique = true, nullable = false)
+  @Column(name = "ID", nullable = false)
   private Integer ident;
 
   /**
