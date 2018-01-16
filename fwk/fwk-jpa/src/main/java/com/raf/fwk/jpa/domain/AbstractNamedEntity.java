@@ -7,6 +7,7 @@ import javax.persistence.MappedSuperclass;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,6 +21,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@EqualsAndHashCode(callSuper = false, of = { "name" })
 public abstract class AbstractNamedEntity extends AbstractEntity implements DomainNamedEntity<String> {
 
   /** Serial UID. */
@@ -27,7 +29,7 @@ public abstract class AbstractNamedEntity extends AbstractEntity implements Doma
 
   /** The name. */
   @Id
-  @Column(name = "NAME", unique = true, nullable = false, length = 30)
+  @Column(name = "NAME", nullable = false, length = 30)
   private String name;
 
   /** The message code for internationalisation. */
