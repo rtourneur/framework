@@ -74,7 +74,7 @@ public final class UserDetailsServiceImpl extends AbstractService<UserEntityDao,
    * @param username
    *          the username
    * @return the user if found, <code>null</code> otherwise
-   * @see UserService#findByUsername(String)
+   * @see UserEntityService#findByUsername(String)
    */
   @Override
   @Loggable
@@ -93,7 +93,7 @@ public final class UserDetailsServiceImpl extends AbstractService<UserEntityDao,
    * @param mail
    *          the mail adress
    * @return the user if found, <code>null</code> otherwise
-   * @see UserService#findByMail(String)
+   * @see UserEntityService#findByMail(String)
    */
   @Override
   @Loggable
